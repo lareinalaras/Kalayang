@@ -6,6 +6,7 @@
       style="width: 200px; height: 200px"
     />
     <p>satu-kalayang</p>
+    <q-btn @click="$router.replace('/pengaturan-peran/')">sihd</q-btn>
   </q-page>
 </template>
 

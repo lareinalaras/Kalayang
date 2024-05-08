@@ -22,7 +22,14 @@ const routes = [
     path: '/beranda-pembeli',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import("pages/page-pembeli/HomePembeli.vue") }
+      { path: '', component: () => import("pages/page-pembeli/BerandaPembeli.vue") }
+    ]
+  },
+  {
+    path: '/register',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import("pages/RegisterPage.vue") }
     ]
   },
 
@@ -31,7 +38,7 @@ const routes = [
     path: '/beranda-penjual',
     component: () => import('layouts/MainLayout1.vue'),
     children: [
-      { path: '', component: () => import("pages/page-penjual/HomePenjual.vue") }
+      { path: '', component: () => import("pages/page-penjual/BerandaPenjual.vue") }
     ]
   },
   {
@@ -66,7 +73,7 @@ const routes = [
     path: '/profile',
     component: () => import('layouts/MainLayout1.vue'),
     children: [
-      { path: '', component: () => import("pages/page-penjual/ProfilePenjual.vue") }
+      { path: '', component: () => import("pages/page-penjual/ProfilePage.vue") }
     ]
   },
 

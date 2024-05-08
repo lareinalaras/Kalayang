@@ -95,6 +95,12 @@ import { route } from 'quasar/wrappers';
           label="Pembeli"
           @click="$router.replace('/beranda-pembeli')"
         />
+        <q-btn
+          outline
+          style="color: black; padding: 50px; font-size: 16px"
+          label="regis"
+          @click="$router.replace('/register')"
+        />
       </div>
     </div>
   </q-page>

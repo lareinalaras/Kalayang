@@ -1,12 +1,28 @@
-
-const routes = [
-  // {
-  //   path: '/',
-  //   component: () => import('layouts/MainLayout.vue'),
-  //   children: [
-  //     { path: '', component: () => import('pages/IndexPage.vue') }
-  //   ]
-  // },
+const routes = [{
+        path: '/settings',
+        component: () =>
+            import ('layouts/MainLayout.vue'),
+        children: [{
+            path: 'register',
+            component: () =>
+                import ('pages/RegisterPage.vue')
+        }, {
+            path: 'login',
+            component: () =>
+                import ('pages/LoginPage.vue')
+        }, {
+            path: 'admin',
+            component: () =>
+                import ('pages/AdminPage.vue')
+        }]
+    },
+    // {
+    //   path: '/',
+    //   component: () => import('layouts/MainLayout.vue'),
+    //   children: [
+    //     { path: '', component: () => import('pages/IndexPage.vue') }
+    //   ]
+    // },
 
 
 
@@ -32,6 +48,26 @@ const routes = [
       { path: '', component: () => import("pages/RegisterPage.vue") }
     ]
   },
+    {
+        path: '/',
+        component: () =>
+            import ('layouts/MainLayout.vue'),
+        children: [{
+            path: '',
+            component: () =>
+                import ("pages/PengaturanPeran.vue")
+        }]
+    },
+    {
+        path: '/beranda-pembeli',
+        component: () =>
+            import ('layouts/MainLayout.vue'),
+        children: [{
+            path: '',
+            component: () =>
+                import ("pages/page-pembeli/HomePembeli.vue")
+        }]
+    },
 
   //penjual
   {
@@ -78,23 +114,24 @@ const routes = [
   },
 
 
-  // {
-  //   path: '/pengaturan-peran',
-  //   component: () => import('layouts/MainLayout.vue'),
-  //   children:[
-  //     {
-  //       path: '',
-  //       component: () =>
-  //         import("pages/PengaturanPeran.vue"),
-  //     }
-  //   ],
-  // },
+    // {
+    //   path: '/pengaturan-peran',
+    //   component: () => import('layouts/MainLayout.vue'),
+    //   children:[
+    //     {
+    //       path: '',
+    //       component: () =>
+    //         import("pages/PengaturanPeran.vue"),
+    //     }
+    //   ],
+    // },
 
 
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
+    {
+        path: '/:catchAll(.*)*',
+        component: () =>
+            import ('pages/ErrorNotFound.vue')
+    }
 ]
 
 export default routes

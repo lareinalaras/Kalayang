@@ -3,11 +3,8 @@
     <q-form @submit="register" action="/tes">
 
       <q-input v-model="formData.email" label="Email" />
-      <q-input v-model="formData.nama_toko" label="Nama Toko" />
-      <q-input v-model="formData.nama_pemilik_toko" label="Nama Pemilik Toko" />
-      <q-input v-model="formData.nomor_telepon" label="Nomor Telepon" />
-      <q-input v-model="formData.nomor_toko" label="Nomor toko" />
-      <q-btn type="submit" label="Register" color="primary" />
+      <q-input v-model="formData.password" type="password" label="Password" />
+      <q-btn type="submit" label="Login" color="primary" />
     </q-form>
 
   </q-page>
@@ -15,7 +12,7 @@
 
 <script setup>
 defineOptions({
-  name: 'RegisterPage'
+  name: 'LoginPage'
 });
 
 
@@ -30,10 +27,7 @@ export default {
     return {
       formData: {
       email :'',
-      nama_toko :'',
-      nama_pemilik_toko:'',
-      nomor_telepon:'',
-      nomor_toko:''
+      password:''
       }
     }
   },

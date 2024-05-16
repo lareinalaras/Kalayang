@@ -2,8 +2,8 @@
   <q-page>
     <div class="row">
       <div class="col-12 col-md-4 col-lg-4 q-pa-md">
-        <div class="text-h4 text-bold">Satu Kalayang</div>
-        <div class="text-grey-7">Please Login Your Account Below</div>
+        <div class="text-h4 text-bold">Login</div>
+        <!-- <div class="text-grey-7">Please Login Your Account Below</div> -->
         <div class="column">
           <q-input
           outlined

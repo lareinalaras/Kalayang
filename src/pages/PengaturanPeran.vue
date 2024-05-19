@@ -87,7 +87,7 @@ import { route } from 'quasar/wrappers';
             font-size: 16px;
           "
           label="Penjual"
-          @click="$router.replace('/beranda-penjual')"
+          @click="$router.replace('/login')"
         />
         <q-btn
           outline

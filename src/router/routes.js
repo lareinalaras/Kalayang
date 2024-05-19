@@ -14,7 +14,10 @@ const routes = [{
             path: '/admin',
             component: () =>
                 import ('pages/AdminPage.vue')
-        }]
+        },
+        { path: '/forgot-password', component: () => import('pages/ForgotPasswordPage.vue') },
+        { path: '/verification', component: () => import('pages/VerificationPage.vue') }
+      ]
     },
     // {
     //   path: '/',
@@ -88,7 +91,8 @@ const routes = [{
     path: '/rekap-penjual',
     component: () => import('layouts/MainLayout1.vue'),
     children: [
-      { path: '', component: () => import("pages/page-penjual/RekapPenjual.vue") }
+      { path: '', component: () => import("pages/page-penjual/RekapPenjual.vue") },
+      { path: '/rekap-penjual/:id/detail', component: () => import('pages/page-penjual/DetailRekap.vue') },
     ]
   },
   {

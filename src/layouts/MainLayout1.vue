@@ -128,12 +128,12 @@ import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "MainLayout1",
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-  },
+  // props: {
+  //   title: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // },
 
   components: {},
 

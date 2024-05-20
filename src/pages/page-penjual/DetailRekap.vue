@@ -1,23 +1,26 @@
 <template>
-  <HeaderCreate title="Pesanan" backAction="/beranda-penjual" />
+  <HeaderCreate title="Rekap Detail" backAction="/rekap-penjual" />
   <q-page>
     <div class="q-pa-md">
       <q-card flat bordered>
         <q-card-section>
-          <div class="row items-center">
-            <div class="col text-bold">
-              Status
-            </div>
-            <div class="col text-right">
-              <q-chip color="warning" text-color="white" icon="las la-hourglass-half" style="font-size: small;">
-                Menunggu Konfirmasi
-              </q-chip>
-            </div>
-          </div>
+          <div class="text-subtitle2">{{ formatToDate(resultData.date) }}</div>
+          <q-markup-table flat dense>
+            <thead>
+              <tr>
+                <th class="text-left">Total Pendapatan</th>
+                <th class="text-right">Rp {{ toRupiah(resultData.total) }}</th>
+              </tr>
+              <tr>
+                <th class="text-left">Jumlah Pesanan</th>
+                <th class="text-right">{{ resultData.quantity }}</th>
+              </tr>
+            </thead>
+          </q-markup-table>
         </q-card-section>
 
         <q-card-section>
-          <q-markup-table flat>
+          <q-markup-table flat bordered>
             <thead>
               <tr>
                 <th class="text-left">Pesanan</th>
@@ -36,27 +39,6 @@
             </tbody>
           </q-markup-table>
         </q-card-section>
-
-        <q-card-section>
-          <div class="row">
-            <div class="col text-bold">
-              Total yang harus dibayar
-            </div>
-            <div class="col text-right text-bold">
-              Rp {{ toRupiah(70000) }}
-            </div>
-          </div>
-        </q-card-section>
-        <q-card-section>
-          <div class="row">
-            <div class="col text-right">
-              <q-btn flat color="negative" label="Tolak Pesanan" />
-            </div>
-            <div class="col text-right text-bold">
-              <q-btn color="primary" label="Terima Pesanan" />
-            </div>
-          </div>
-        </q-card-section>
       </q-card>
     </div>
   </q-page>
@@ -64,13 +46,19 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import HeaderCreate from "components/HeaderCreate.vue"
+import { useRoute } from 'vue-router'
+import HeaderCreate from "components/HeaderCreate.vue";
+import { getRekapSingle } from 'src/composables/useRekapComposables'
 import { showLoading, hideLoading } from 'src/composables/useLoadingComposables'
+import { formatToDate } from 'src/libs/dateTime'
 import { toRupiah } from 'src/libs/currency'
 
 defineOptions({
   name: 'DetailRekap'
 });
+
+const router = useRoute()
+const { id } = router.params
 
 const resultData = ref({})
 const rows = ref([
@@ -82,8 +70,9 @@ const rows = ref([
 const getData = async () => {
   try {
     showLoading()
-    setTimeout(() => hideLoading(), 2000)
-
+    const data = await getRekapSingle(id)
+    resultData.value = data
+    hideLoading()
   } catch (error) {
     console.log(error)
   }

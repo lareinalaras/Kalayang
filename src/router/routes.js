@@ -1,73 +1,37 @@
-const routes = [{
-        path: '/settings',
-        component: () =>
-            import ('layouts/MainLayout.vue'),
-        children: [{
-            path: '/register',
-            component: () =>
-                import ('pages/RegisterPage.vue')
-        }, {
-            path: '/login',
-            component: () =>
-                import ('pages/LoginPage.vue')
-        }, {
-            path: '/admin',
-            component: () =>
-                import ('pages/AdminPage.vue')
-        }]
-    },
-    // {
-    //   path: '/',
-    //   component: () => import('layouts/MainLayout.vue'),
-    //   children: [
-    //     { path: '', component: () => import('pages/IndexPage.vue') }
-    //   ]
-    // },
+const routes = [
+	{
+		path: '/',
+		component: () => import ('layouts/MainLayout.vue'),
+		children: [
+      { path: '', component: () => import("pages/PengaturanPeran.vue") },
+			{ path: '/register', component: () => import ('pages/RegisterPage.vue')},
+			{ path: '/login', component: () => import ('pages/LoginPage.vue') },
+			{ path: '/admin', component: () => import ('pages/AdminPage.vue')},
+			{ path: '/forgot-password', component: () => import('pages/ForgotPasswordPage.vue') },
+			{ path: '/verification', component: () => import('pages/VerificationPage.vue') }
+		]
+	},
 
-
-
-
-  {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import("pages/PengaturanPeran.vue") }
-    ]
-  },
   {
     path: '/beranda-pembeli',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import("pages/page-pembeli/BerandaPembeli.vue") }
+      { path: '', component: () => import("pages/page-pembeli/BerandaPembeli.vue") },
+      { path: '/ringkasan-pesanan', component: () => import("pages/page-pembeli/RingkasanPesanan.vue") },
+      { path: '/pembayaran', component: () => import("pages/page-pembeli/Pembayaran.vue") },
+      { path: '/status-pesanan', component: () => import("pages/page-pembeli/StatusPesanan.vue") },
     ]
   },
-  {
-    path: '/register',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import("pages/RegisterPage.vue") }
-    ]
-  },
-    {
-        path: '/',
-        component: () =>
-            import ('layouts/MainLayout.vue'),
-        children: [{
-            path: '',
-            component: () =>
-                import ("pages/PengaturanPeran.vue")
-        }]
-    },
-    {
-        path: '/beranda-pembeli',
-        component: () =>
-            import ('layouts/MainLayout.vue'),
-        children: [{
-            path: '',
-            component: () =>
-                import ("pages/page-pembeli/HomePembeli.vue")
-        }]
-    },
+	{
+			path: '/',
+			component: () =>
+					import ('layouts/MainLayout.vue'),
+			children: [{
+					path: '',
+					component: () =>
+							import ("pages/PengaturanPeran.vue")
+			}]
+	},
 
   //penjual
   {
@@ -88,7 +52,8 @@ const routes = [{
     path: '/rekap-penjual',
     component: () => import('layouts/MainLayout1.vue'),
     children: [
-      { path: '', component: () => import("pages/page-penjual/RekapPenjual.vue") }
+      { path: '', component: () => import("pages/page-penjual/RekapPenjual.vue") },
+      { path: '/rekap-penjual/:id/detail', component: () => import('pages/page-penjual/DetailRekap.vue') },
     ]
   },
   {
@@ -114,24 +79,11 @@ const routes = [{
   },
 
 
-    // {
-    //   path: '/pengaturan-peran',
-    //   component: () => import('layouts/MainLayout.vue'),
-    //   children:[
-    //     {
-    //       path: '',
-    //       component: () =>
-    //         import("pages/PengaturanPeran.vue"),
-    //     }
-    //   ],
-    // },
-
-
-    {
-        path: '/:catchAll(.*)*',
-        component: () =>
-            import ('pages/ErrorNotFound.vue')
-    }
+	{
+			path: '/:catchAll(.*)*',
+			component: () =>
+					import ('pages/ErrorNotFound.vue')
+	}
 ]
 
 export default routes

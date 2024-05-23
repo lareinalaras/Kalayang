@@ -74,7 +74,7 @@ import { route } from 'quasar/wrappers';
               rounded
               class="text-weight-medium"
               icon="edit"
-              @click="$router.replace('/edit-pesanan')"
+              @click="$router.push('/edit-pesanan')"
               style="margin-left: auto; margin-bottom: auto; margin-right: 5%"
             />
           </div>

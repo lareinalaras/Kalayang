@@ -44,7 +44,7 @@ import { route } from 'quasar/wrappers';
           />
           <p class="text-category">Makanan Ringan</p>
         </div>
-        <div style="text-align: center; margin: auto">
+        <div style="text-align: center; margin: auto" >
           <img
             src="/src/assets/WhatsApp Image 2024-04-30 at 13.17.28_a0a48e8c.jpg"
             alt="Deskripsi Foto"

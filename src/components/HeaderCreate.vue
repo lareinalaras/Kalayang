@@ -72,6 +72,7 @@
           style="text-transform: none"
           color="red"
           v-close-popup
+          @click="logout()"
         />
       </q-card-actions>
     </q-card>
@@ -79,7 +80,9 @@
 </template>
 
 <script>
+import router from "src/router";
 import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "HeaderCreate",
@@ -101,9 +104,11 @@ export default defineComponent({
 
   setup() {
     const dialogLogout = ref(false);
+    const router = useRouter();
 
     return {
       dialogLogout,
+      router
     };
   },
 
@@ -111,6 +116,11 @@ export default defineComponent({
     openDialogLogout() {
       this.dialogLogout = true;
     },
+
+    logout() {
+      this.dialogLogout = false;
+      this.router.push("/login");
+    }
   },
 });
 </script>
